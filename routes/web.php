@@ -22,10 +22,10 @@ Route::middleware('auth')
 ->prefix('admin')
 ->name('admin.')
 ->group(function(){
-    Route::get('/', 'HomeControlle r@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
 });
 
 Route::get('/{any}', 'Guest\HomeController@index')->where('any','.*');
-Route::get('/home', 'HomeController@index')->name('home');
+
