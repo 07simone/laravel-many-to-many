@@ -1,8 +1,8 @@
-{{-- @extends('layout.default')
+@extends('layouts.app')
 
 @section('content')
     <h1>
-        Edit nuova auto
+        Edit nuovo post
     </h1>
     <div>
         @if ($errors->any())
@@ -15,38 +15,19 @@
             </div>
         @endif
     </div>
-    <form action="{{ route('cars.update', $car) }}" method="POST">
-        @csrf
-        @method('PUT')
 
-        <label for="numero_telaio">Numero di telaio</label>
-        <input type="text" name="numero_telaio" id="numero_telaio" value="{{ $car->numero_telaio }}">
+    <form action="{{ route("admin.categories.store") }}" method="POST">
+        @csrf
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{{ $category->name }}">
         <br>
-        <label for="model">Modello</label>
-        <input type="text" name="model" id="model" value="{{ $car->model }}">
-        <br>
-        <label for="porte">Porte</label>
-        <input type="text" name="porte" id="porte" value="{{ $car->porte }}">
-        <br>
-        <label for="data_immatricolazione">Immatricolazione</label>
-        <input type="text" name="data_immatricolazione" id="data_immatricolazione"
-            value="{{ $car->data_immatricolazione }}">
-        <br>
-        <label for="brand_id">Marca</label>
-        <select name="brand_id" id="brand_id">
-            @foreach ($brands as $brand)
-                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-            @endforeach
-        </select>
-        <br>
-        <label for="alimentazione">Alimentazione</label>
-        <input type="text" name="alimentazione" id="alimentazione" value="{{ $car->alimentazione }}">
-        <br>
-        <label for="prezzo">Prezzo</label>
-        <input type="text" name="prezzo" id="prezzo" value="{{ $car->prezzo }}">
+        <label for="img">immagine</label>
+        <input type="text" name="img" id="img" value="{{ $category->img }}">
         <br>
         <button type="submit">Send</button>
+
     </form>
 
 @endsection
- --}}
+
