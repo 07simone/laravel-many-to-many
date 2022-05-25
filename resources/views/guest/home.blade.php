@@ -64,9 +64,7 @@
         </style>
     </head>
     <body>
-        <header>
-                <a href="{{ route ('admin.categories.store') }}"> create</a>
-        </header>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

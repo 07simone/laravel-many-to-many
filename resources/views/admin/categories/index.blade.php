@@ -23,6 +23,12 @@
                             <h1 class="card-title">{{$category->name}}</h1>
                             <a href="{{route("admin.categories.edit", $category)}}" class="btn btn-secondary">modifica</a>
                             <a href="{{route("admin.categories.show", $category)}}" class="btn btn-primary">Dettagli</a>
+                            <form action="{{route("admin.categories.destroy", $category)}}" method="POST" class="btn btn-danger">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">cancella</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>

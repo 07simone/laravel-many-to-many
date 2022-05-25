@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $newCategory->img = $data['img'];
         $newCategory->save();
 
-        return redirect()->route('admin.categories.show', $newCategory);
+        return redirect()->route('admin.categories.show', $newCategory)->with('message',"$newCategory->name è stato aggiunto");;
     }
 
     /**
@@ -87,7 +87,7 @@ class CategoryController extends Controller
         $category->img = $data['img'];
         $category->save();
 
-        return redirect()->route('admin.categories.show', $category);
+        return redirect()->route('admin.categories.show', $category)->with('message',"$category->name è stata modificata");;
     }
 
     /**
@@ -96,8 +96,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index', $category->id)->with('message',"$category->name è stato eliminato");
     }
 }
